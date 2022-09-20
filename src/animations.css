@@ -1,0 +1,23 @@
+
+/* Global Animations */
+
+.hide{
+    display: none;
+  }
+
+  .fadeIn {
+    display: block;
+    animation-name: fadeinanimation;
+  }
+
+  @keyframes fadeinanimation {
+    0% {
+        position: relative;
+        top: 0;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+  }
