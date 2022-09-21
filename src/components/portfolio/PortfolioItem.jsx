@@ -40,7 +40,7 @@ const PortfolioItem = ({ post }) => {
         <h3>{parse(post.title.rendered)}</h3>
         <div className="portfolio_item_cta">
         <a href={post.acf.githublink} className='btn' target='_blank'>Live Demo</a>
-        <NavLink to={post.slug} onClick={() => navigate(post.slug)} className='btn btn-primary'>Read More</NavLink>
+        <NavLink onClick={() => navigate(post.slug)} className='btn btn-primary'>Read More</NavLink>
     </div>
   </article>
   )
