@@ -3,11 +3,17 @@ import './about.css'
 import ME from '../../assets/me-about.png'
 import {BiBookBookmark} from 'react-icons/bi'
 import {FaUsers} from 'react-icons/fa'
-import {VscFolderLibrary} from 'react-icons/vsc'
+import {BiMedal} from 'react-icons/bi'
+import { useInView } from 'react-intersection-observer';
+import styles from '../../animations.css'
 
 const About = () => {
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0
+  });
+
   return (
-    <section id='about'>
+    <section id='about' ref={sectionRef} className={`${inView ? styles.fadeIn : ""}`}>
       <h5>Get To Know</h5>
       <h2>About Me</h2>
       <div className="container about_container">
@@ -31,9 +37,11 @@ const About = () => {
               <small>I've done freelance work for 3 clients</small>
             </article>
             <article className='about_card'>
-              <VscFolderLibrary className='about_icon' />
-              <h5>Projects</h5>
-              <small>50+</small>
+              <BiMedal className='about_icon' />
+              <h5>CEO & <br />Co-Founder</h5>
+              <small>Next Level Media</small>
+              <br />
+              <a href="https://www.nextlevelmedia.dk/">Website &rarr;</a>
             </article>
           </div>
 

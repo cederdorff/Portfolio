@@ -4,6 +4,8 @@ import Avatar1 from '../../assets/avatar1.jpg'
 import Avatar2 from '../../assets/avatar2.jpg'
 import Avatar3 from '../../assets/avatar3.jpg'
 import Avatar4 from '../../assets/avatar4.jpg'
+import { useInView } from 'react-intersection-observer';
+import styles from '../../animations.css'
 
 // import Swiper core and required modules
 import { Pagination } from 'swiper';
@@ -38,8 +40,12 @@ const data = [
 ]
 
 const Testimonials = () => {
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0
+  });
+  
   return (
-    <section id='testimonials'>
+    <section id='testimonials'  ref={sectionRef} className={`${inView ? styles.fadeIn : ""}`}>
       <h5>Review from past clients</h5>
       <h2>Testimonials</h2>
 

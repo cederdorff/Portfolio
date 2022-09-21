@@ -5,8 +5,13 @@ import {RiMessengerLine} from 'react-icons/ri'
 import {BsWhatsapp} from 'react-icons/bs'
 import { useRef } from 'react';
 import emailjs from 'emailjs-com'
+import { useInView } from 'react-intersection-observer';
+import styles from '../../animations.css'
 
 const Contact = () => {
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0
+  });
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -18,7 +23,7 @@ const Contact = () => {
   };
 
   return (
-    <section id='contact'>
+    <section id='contact' ref={sectionRef} className={`${inView ? styles.fadeIn : ""}`}>
       <h5>Get In Touch</h5>
       <h2>Contact Me</h2>
 
@@ -33,14 +38,8 @@ const Contact = () => {
           <article className="contact__option">
             <RiMessengerLine className='contact__option-icon'/>
             <h4>Messenger</h4>
-            <h5>egatortutorials</h5>
+            <h5>Mathias Quist Michaelsen</h5>
             <a href="https://m.me/ernest.achiever" target="_blank">Send a message</a>
-          </article>
-          <article className="contact__option">
-            <BsWhatsapp className='contact__option-icon'/>
-            <h4>WhatsApp</h4>
-            <h5>+123456789</h5>
-            <a href="https://api.whatsapp.com/send?phone=+1234567890" target="_blank">Send a message</a>
           </article>
         </div>
         {/* END OF CONTACT OPTIONS */}

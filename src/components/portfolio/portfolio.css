@@ -32,6 +32,12 @@
     margin-bottom: 1rem;
 }
 
+.container_read_more {
+    width: 100%;
+    height: 400px;
+    background: var(--color-primary-variant);
+}
+
 
 /* Media Queries */
 

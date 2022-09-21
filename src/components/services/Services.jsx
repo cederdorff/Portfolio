@@ -1,10 +1,16 @@
 import React from 'react'
 import {IoMdCheckmark} from 'react-icons/io'
 import './services.css'
+import { useInView } from 'react-intersection-observer';
+import styles from '../../animations.css'
 
 const Services = () => {
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0
+  });
+
   return (
-    <section id='services'>
+    <section id='services'  ref={sectionRef} className={`${inView ? styles.fadeIn : ""}`}>
       <h5>What I Offer</h5>
       <h2>Services</h2>
 
