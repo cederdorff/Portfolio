@@ -2,8 +2,12 @@ import React from 'react'
 import parse from "html-react-parser";
 import './portfolio.css'
 import {NavLink} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const PortfolioItem = ({ post }) => {
+
+    const navigate = useNavigate();
+
     let image = "https://cederdorff.github.io/img/logo512.webp";
 
     if (post._embedded && post._embedded["wp:featuredmedia"]) {
@@ -19,7 +23,7 @@ const PortfolioItem = ({ post }) => {
         <h3>{parse(post.title.rendered)}</h3>
         <div className="portfolio_item_cta">
         <a href={post.acf.githublink} className='btn' target='_blank'>Live Demo</a>
-        <NavLink to="/ReadMore" className='btn btn-primary'>Read More</NavLink>
+        <NavLink to={post.slug} onClick={() => navigate(post.slug)} className='btn btn-primary'>Read More</NavLink>
     </div>
   </article>
   )

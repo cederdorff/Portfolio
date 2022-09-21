@@ -33,9 +33,12 @@
 }
 
 .container_read_more {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
     width: 100%;
-    height: 400px;
-    background: var(--color-primary-variant);
+    height: 350px;
+    background: var(--color-primary);
 }
 
 

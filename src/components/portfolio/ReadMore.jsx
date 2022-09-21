@@ -1,9 +1,11 @@
 import React from 'react'
+import parse from "html-react-parser";
 
-const ReadMore = () => {
+const ReadMore = ({ post }) => {
+  
   return (
     <div className='container_read_more'>
-        <h5>Test</h5>
+        <h2>d</h2>
     </div>
   )
 }

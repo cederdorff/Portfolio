@@ -20,7 +20,7 @@ const App = () => {
         <Header id="header"/>
         <Nav />
             <Routes>
-                <Route path="/ReadMore" element={<ReadMore />} />
+                <Route path={"/ReadMore:slug"} element={<ReadMore />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         <ClientBar />
