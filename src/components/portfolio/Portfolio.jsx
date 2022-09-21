@@ -69,20 +69,6 @@ const Portfolio = ({ post }) => {
         getData();
     }, []);
 
-    const [postz, setPost] = useState({});
-    const params = useParams();
-    console.log(params);
-    const slug = params.slug;
-
-    useEffect(() => {
-        async function getPost() {
-            const url = `https://react-api.cederdorff.com/wp-json/wp/v2/posts?slug=${slug}&_embed`;
-            const response = await fetch(url);
-            const data = await response.json();
-            setPost(data[0]);
-        }
-        getPost();
-    }, [slug]);
   return (
     <section id='portfolio'  ref={sectionRef} className={`${inView ? styles.fadeIn : ""}`}>
       <h5>My Recent Work</h5>

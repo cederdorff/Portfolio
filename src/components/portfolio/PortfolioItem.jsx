@@ -3,6 +3,8 @@ import parse from "html-react-parser";
 import './portfolio.css'
 import {NavLink} from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom";
 
 const PortfolioItem = ({ post }) => {
 
@@ -13,6 +15,21 @@ const PortfolioItem = ({ post }) => {
     if (post._embedded && post._embedded["wp:featuredmedia"]) {
         image = post._embedded["wp:featuredmedia"][0].source_url;
     }
+
+    const [posts, setPost] = useState({});
+    const params = useParams();
+    console.log(params);
+    const slug = params.slug;
+
+    useEffect(() => {
+        async function getPost() {
+            const url = `http://react-api.mathiasqm.dk/wp-json/wp/v2/posts?slug=${slug}&_embed`;
+            const response = await fetch(url);
+            const data = await response.json();
+            setPost(data[0]);
+        }
+        getPost();
+    }, [slug]);
     
   return (
     <article key={post.id} className='portfolio_item'>
